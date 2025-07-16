@@ -21,6 +21,10 @@ This code utilizes the following dependencies:
 Please refer to the above URLs for more information about each dependency.
 
 ## Flow of experiment
+
+### Manual data collection
+
+### New Shepard flight
 The following table is a flight profile of events, and Mission Elapsed Time colored in <span style="color: red;">RED</span> are events that MUD monitors or actions linked to the event.
 
 | Mission Elapsed Time (MET) (seconds) | EVENT  |
