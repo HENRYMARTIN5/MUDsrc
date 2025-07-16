@@ -30,7 +30,7 @@ The following table is a flight profile of events, and Mission Elapsed Time colo
 | 8     | Liftoff  |
 | 128   | Max g on Ascent  |
 | 141   | MECO (Main Engine Cut Off)   |
-| <span style="color: red;">163</span>   | Separate CC, fire RCS to stabilize CC   |
+| <span style="color: red;">163</span>   | Separate Crew Capsule, fire RCS to stabilize Crew Capsule   |
 | <span style="color: red;">181</span>   | Coast Start Detected RCS stabilization firings complete, Sensed Acceleration < 0.01 g   |
 | 245   | Apogee  |
 | <span style="color: red;">332</span>   | Sensed Acceleration  > 0.01 g  |
