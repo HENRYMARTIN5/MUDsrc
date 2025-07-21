@@ -1,5 +1,7 @@
 # Microgravity Ullage Detection (MUD)
 
+## About
+
 ## Content
 
 - `MUD.c` can be used to control MUD experiment through command. It has TUI.
@@ -14,9 +16,9 @@
 ## Dependencies
 This code utilizes the following dependencies:
 
-- [WiringPi](https://github.com/mccdaq/daqhats.git)
+- [WiringPi](https://github.com/WiringPi/WiringPi.git)
 
-- [daqhats](https://github.com/WiringPi/WiringPi.git)
+- [daqhats](https://github.com/mccdaq/daqhats.git)
 
 Please refer to the above URLs for more information about each dependency.
 
@@ -51,20 +53,21 @@ The following table is a flight profile of events, and Mission Elapsed Time colo
 For questions regarding the New Shepard flight profile, please refer to [Blue Origin's payload information](https://www.blueorigin.com/new-shepard/payloads).
 
 ## Expected output in log
-| Mission Elapsed Time (MET) (seconds) | Expected Log output  |   Reason   |
+| Expected output timing in MET | Expected Log output  |   Reason and Usage   |
 |-----------------|-----------------|-----------------|
-|   0~30   |   <ul><li>`"mcc118 #%i is open"`</li><li>`"mcc118 #%i scan stopped"`</li><li>`"mcc118 #%i scan buffer cleaned"`</li><li>`"mcc118 #%i closed"`</li></ul>   |
-|   "   |   <ul><li>`"Log Started"`</li><li>`"GPIO initialized"`</li><li>`"Kernel Log Started"`</li><li>`"camera turned on"`</li><li>`"act turned on"`</li><li>`"Data Collection Started"`</li></ul>   |
-|   163~165 |   <ul><li>`"CC"`</li><li>`"Experiment on"`</li></ul>   |
-|   193~195    |   `"CC + 30"`   |
-|   207~212    |   <ul><li>`"Equalization Start"`</li><li>`"A to B on"`</li></ul>  |
-|   327~332 |   <ul><li>`"A to B off"`</li><li>`"Equalization End"`</li></ul>   |
-|   357~380    |   <ul><li>`"Experiment Off"`</li><li>`"Quitting Program"`</li><li>`"Program ended safely"`</li></ul>   |
-
-<ul><li>C</li></ul>
+|   0~30   |   <ul><li>`"mcc118 #%i is open"`</li><li>`"mcc118 #%i scan stopped"`</li><li>`"mcc118 #%i scan buffer cleaned"`</li><li>`"mcc118 #%i closed"`</li></ul>   |    These messages appear when MCC DAQHATs are active when `mud_blue.202x` launch. It likely happen when MUD experience sudden power loss or could not perform prescribed shutdown process. These message can be used as indicator of unstable power from vehicle or extenal power supply.  `mud_blue.202x` perform MCC initilization when it launch, so these messages do not effect MUD data collection process.    |
+|   "   |   <ul><li>`"Log Started"`</li><li>`"GPIO initialized"`</li><li>`"Kernel Log Started"`</li><li>`"camera turned on"`</li><li>`"act turned on"`</li><li>`"Data Collection Started"`</li></ul>   |    These message indicates which and when individual component of MUD turned on.   |
+|   163~165 |   <ul><li>`"CC"`</li><li>`"Experiment on"`</li></ul>   |  These message apear when WiringPi Pin 24/BCM GPIO 5/Physical Pin 18 detect `HIGH`, and these can be used to debug payload integration. |
+|   193~195    |   <ul>`"CC + 30"`   |  This message indicates that liquid in Tank A is expected to be in an equilibrium state.   |
+|   207~212    |   <ul><li>`"Equalization Start"`</li><li>`"A to B on"`</li></ul>  |    These messages should apears 15 and 16.5 seconds after `"CC + 30"` message.   |
+|   327~332 |   <ul><li>`"A to B off"`</li><li>`"Equalization End"`</li></ul>   |    These messages should apears 120 and 120.5 seconds after `"A to B on"` message.   |
+|   357~360    |   `"Experiment Off"`  |   This message indicates 30 seconds passed from the last message.   |
+|   375~380    |   `"Quitting Program"` |   This message appears when `quitting_program` flag is set. Data collection will begin to wrap up buffered data, clean up heap-allocated memories, and close MCC DAQHATs.   |
+|   "   |   `"Program ended safely"`    |   This is and should be **the last message** in the log file. This message indicates all buffers, heaps, and resources are cleaned up, leaving no remains.    |
 
 ## How to use
 
 ### TUI
+need TUI screenshot
 
 ### command
