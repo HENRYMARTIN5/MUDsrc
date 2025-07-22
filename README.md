@@ -61,9 +61,9 @@ For questions regarding the New Shepard flight profile, please refer to [Blue Or
 |   193~195    |   <ul>`"CC + 30"`   |  This message indicates that liquid in Tank A is expected to be in an equilibrium state.   |
 |   207~212    |   <ul><li>`"Equalization Start"`</li><li>`"A to B on"`</li></ul>  |    These messages should apears 15 and 16.5 seconds after `"CC + 30"` message.   |
 |   327~332 |   <ul><li>`"A to B off"`</li><li>`"Equalization End"`</li></ul>   |    These messages should apears 120 and 120.5 seconds after `"A to B on"` message.   |
-|   357~360    |   `"Experiment Off"`  |   This message indicates 30 seconds passed from the last message.   |
-|   375~380    |   `"Quitting Program"` |   This message appears when `quitting_program` flag is set. Data collection will begin to wrap up buffered data, clean up heap-allocated memories, and close MCC DAQHATs.   |
-|   "   |   `"Program ended safely"`    |   This is and should be **the last message** in the log file. This message indicates all buffers, heaps, and resources are cleaned up, leaving no remains.    |
+|   357~360    |   <ul>`"Experiment Off"`  |   This message indicates 30 seconds passed from the last message.   |
+|   375~380    |   <ul>`"Quitting Program"` |   This message appears when `quitting_program` flag is set. Data collection will begin to wrap up buffered data, clean up heap-allocated memories, and close MCC DAQHATs.   |
+|   "   |   <ul>`"Program ended safely"`    |   This is and should be **the last message** in the log file. This message indicates all buffers, heaps, and resources are cleaned up, leaving no remains.    |
 
 ## How to use
 
