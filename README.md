@@ -22,7 +22,32 @@ This code utilizes the following dependencies:
 
 Please refer to the above URLs for more information about each dependency.
 
-## Flow of experiment
+The experiment hardware is managed by a Raspberry Pi 3B, which interfaces with all components of MUD. You can operate the experiment using either `MUD.c` or `MUD_BlueOrigin_Code.c`:
+
+- `MUD.c` offers a text-based user interface (TUI) for manual control and monitoring of the experiment.
+- `MUD_BlueOrigin_Code.c` provides automated control specifically designed for the Blue Origin New Shepard flight profile, enabling hands-off operation during launch and flight.
+
+Choose the appropriate program based on your experimental scenario and required level of automation.
+
+## How to Operate
+Both programs (`MUD.c` and `MUD_BlueOrigin_Code.c`) should be placed within a same folder for the experiment, and both code can be compiled and build by attached CMake file. The operation procedures differ between `MUD.c` and `MUD_BlueOrigin_Code.c`:
+
+- **`MUD.c`**:  
+    Designed for manual control via a text-based user interface (TUI).  
+    Launch the program in a terminal to interactively monitor and control the experiment.  
+    Follow on-screen prompts to execute commands and view experiment status.
+
+- **`MUD_BlueOrigin_Code.c`**:  
+    Intended for automated operation during the Blue Origin New Shepard flight.  
+    Run the program to initiate automated data collection and experiment control according to the flight profile.  
+    Minimal user interaction is required; the program will log events and manage hardware based on mission timing.
+
+Refer to the sections below for details on TUI usage, command-line options, and experiment scenarios.
+
+### TUI
+![TUI screenshot](images\TUI.png)
+
+### Command
 
 ### Manual data collection
 need diagram.
@@ -64,10 +89,3 @@ For questions regarding the New Shepard flight profile, please refer to [Blue Or
 |   357~360    |   <ul>`"Experiment Off"`  |   This message indicates 30 seconds passed from the last message.   |
 |   375~380    |   <ul>`"Quitting Program"` |   This message appears when `quitting_program` flag is set. Data collection will begin to wrap up buffered data, clean up heap-allocated memories, and close MCC DAQHATs.   |
 |   "   |   <ul>`"Program ended safely"`    |   This is and should be **the last message** in the log file. This message indicates all buffers, heaps, and resources are cleaned up, leaving no remains.    |
-
-## How to use
-
-### TUI
-need TUI screenshot
-
-### command
