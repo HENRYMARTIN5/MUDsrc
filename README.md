@@ -45,9 +45,39 @@ Both programs (`MUD.c` and `MUD_BlueOrigin_Code.c`) should be placed within a sa
 Refer to the sections below for details on TUI usage, command-line options, and experiment scenarios.
 
 ### TUI
+The image below shows the TUI of `MUD.c`, which provides interactive control and monitoring of the experiment.
 ![TUI screenshot](images\TUI.png)
+| Row | Explanation  |
+|-----------------|-----------------|
+|   2   |The second row displays a selection of commands that can be entered in the third row; note that this is not an exhaustive list of all available commands.|
+|   3   |Command input field|
+|   4   ||
+|   5   ||
+|   6   ||
+|   7   ||
+|   8   ||
+|   9   ||
+|   10  ||
+|   11  ||
 
 ### Command
+| Command | Explanation  |
+|-----------------|-----------------|
+|   atob   ||
+|   btoa   ||
+|   act   ||
+|   data   ||
+|   flight   ||
+|   s1   ||
+|   s2   ||
+|   s3   ||
+|   file  ||
+|   cam  ||
+|   speed  ||
+|   count  ||
+speed"enter the pump speed you want 0-100:"
+channels
+count"Enter Device Count\n"
 
 ### Manual data collection
 need diagram.
