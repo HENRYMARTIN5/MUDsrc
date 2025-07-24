@@ -51,33 +51,32 @@ The image below shows the TUI of `MUD.c`, which provides interactive control and
 |-----------------|-----------------|
 |   2   |The second row displays a selection of commands that can be entered in the third row; note that this is not an exhaustive list of all available commands.|
 |   3   |Command input field|
-|   4   ||
-|   5   ||
-|   6   ||
-|   7   ||
-|   8   ||
-|   9   ||
-|   10  ||
-|   11  ||
+|   4   |Displays the status of the piezo patch actuator, indicating whether it is active or inactive.|
+|   5   |Indicates whether the experiment is actively transferring liquid from Tank A to Tank B, showing the current status of the transfer process.|
+|   6   |Displays the status of liquid transfer from Tank B to Tank A, showing whether the reverse transfer process is active or inactive.|
+|   7   |Displays the status of data collection, indicating whether the experiment is actively recording data or not.|
+|   8   |Shows the real-time pressure reading from the flow loop. This value is continuously updated only while data collection is active.|
+|   9   |Displays the current PWM pump speed. The default is 100%, but it can be adjusted using the `speed` command.|
+|   10  |Shows number of active MCC DAQHAT devices. These DAQHATs are used to monitor the piezo patch actuators (PZT), flow sensor, and pressure transducer. This number can be changed throug `count` command. However, reducing this number will limit the monitoring capabilities of the MUD experiment.|
+|   11  |flight mode|
 
 ### Command
 | Command | Explanation  |
 |-----------------|-----------------|
-|   atob   ||
-|   btoa   ||
-|   act   ||
-|   data   ||
-|   flight   ||
-|   s1   ||
-|   s2   ||
-|   s3   ||
-|   file  ||
-|   cam  ||
-|   speed  ||
-|   count  ||
-speed"enter the pump speed you want 0-100:"
+|   atob   |Initiates and pause liquid transfer from Tank A to Tank B. Use this command to start or stop the flow in this direction.|
+|   btoa   |Initiates and pauses liquid transfer from Tank B to Tank A. Use this command to control flow in the reverse direction.|
+|   act    |Toggles the piezo patch actuator on or off, allowing manual control of actuator status.|
+|   data   |Starts or stops data collection, enabling you to manually begin or end experiment data logging.|
+|   s1   |Toggle opens and closes solenoid valve 1 (S1). S1 is a normally closed valve. It also can be manually opened by short-circuiting the relay board labeled `S1`.|
+|   s2   |Toggle opens and closes solenoid valve 2 (S2). S2 is a normally closed valve. It also can be manually opened by short-circuiting the relay board labeled `S2`.|
+|   s3   |Toggle opens and closes solenoid valve 3. S3 used for pressure equalization between Tank A and Tank B. S3 is a normally closed valve. It also can be manually opened by short-circuiting the relay board labeled `S3`. **Note:** S3 should be opened whenever either the `atob` or `btoa` liquid transfer commands are initiated to ensure proper pressure equalization during the transfer process.|
+|   file  |Displays the current output data directory, indicating where experiment logs and data files are saved. Use this command to verify or locate the storage path for collected data.|
+|   cam   |Toggles the camera power on or off, allowing manual control of the camera during the experiment. Use this command to start or stop video recording as needed.|
+|   speed  |Sets the PWM pump speed. After entering the `speed` command, the TUI shifts to the device count input field. Enter a value between 0 and 100 to adjust the pump speed as needed for your experiment.|
+|   count  |Configures the number of active MCC DAQHAT devices. After entering the `count` command, the TUI shifts to the device count input field. Enter 1 or 2 to specify how many DAQHATs will be used for experiment monitoring and control. Lowering the count reduces available sensor channels and monitoring capability. If set to 1, only the DAQHAT closest to the Raspberry Pi 3B will be active.|
+<!-- speed"enter the pump speed you want 0-100:"
 channels
-count"Enter Device Count\n"
+count"Enter Device Count\n" -->
 
 ### Manual data collection
 need diagram.
