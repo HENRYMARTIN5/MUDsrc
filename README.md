@@ -70,7 +70,7 @@ The image below shows the TUI of `MUD.c`, which provides interactive control and
 ![TUI screenshot](images\TUI.png)
 | Row | Explanation  |
 |-----------------|-----------------|
-|   2   |The second row displays a selection of commands that can be entered in the third row; note that this is not an exhaustive list of all available commands.|
+|   2   |The second row displays a selection of commands that can be entered in the third row. **Note:** This is not an exhaustive list of all available commands.|
 |   3   |Command input field|
 |   4   |Displays the status of the piezo patch actuator, indicating whether it is active or inactive.|
 |   5   |Indicates whether the experiment is actively transferring liquid from Tank A to Tank B, showing the current status of the transfer process.|
@@ -116,19 +116,19 @@ count"Enter Device Count\n" -->
 
 ## Troubleshooting
 - When the `mud` application starts, get MCC DAWHATs initialization error.
-    - Exit application using `q` and launch `mud` again. It is caused by the fact that MCC DAQ HATs are not closed correctly.
-- If you initiate `btoa` while `atob` is active (or vice versa), only the last command can be used to stop the transfer process.
-    - For example, if you start `atob` and then initiate `btoa`, you must use the `btoa` command again to stop the transfer; using `atob` will not stop the process.
+    - Exit application using `q` and launch `mud` again. It is caused by the fact that MCC DAQ HATs are not closed correctly.
+- If you initiate `btoa` while `atob` is active (or vice versa), only the last command can be used to stop the transfer.
+    - For example, if you start `atob` and then initiate `btoa`, you must use the `btoa` command again to stop the transfer; using `atob` will not stop the process.
 - Pressure reading in TUI stays 0.0 PSIG.
-    - It will only be updated while the `data` command is running.
+    - It will only be updated while the `data` command is running.
 - Can not or forgot to open the S3 valve.
-    - Use `s3` command or short relay switch labeled `S3` as soon as possible.
+    - Use `s3` command or short relay switch labeled `S3` as soon as possible.
 - Heard audible noise in white noise.
-    - It is caused by Raspberry Pi Wi-Fi and Bluetooth signals. Turn them off using the following commands.
- ```
- sudo rfkill block 0    # disables Wi-Fi
- sudo rfkill block 1    # disables Bluetooth
- ```
+    - It is caused by Raspberry Pi Wi-Fi and Bluetooth signals. Turn them off using the following commands.
+    ```
+    sudo rfkill block 0    # disables Wi-Fi
+    sudo rfkill block 1    # disables Bluetooth
+    ```
 
 # `MUD_BlueOrigin_Code.c`
 ### New Shepard flight
@@ -180,7 +180,7 @@ This method is used for actual rocket launches.
  @reboot /home/pi/MUD_Code/mud_blue.202x
  ```
 3. Reboot
-    - `mud_blue.202x` will start automatically
+    - `mud_blue.202x` will start automatically
 4. Wait 1 minute to make sure `mud_blue.202x` is waiting for `CC` flag digital signal.
 5. Apply 5V to the white wire labeled `com` and `com ⏚`.
 6. Wait until the white noise from the actuator stops.
@@ -223,13 +223,13 @@ This method can be used to observe the experiment in real time, monitor log outp
 
 ## Troubleshooting
 - When the `mud_blue.202x` application starts, get MCC DAQHATs initialization error.
-    - The application will attempt to automatically initialize MCC DAQHATs and start the normal procedure.
+    - The application will attempt to automatically initialize MCC DAQHATs and start the normal procedure.
 - MUD draws too much current.
-    - MUD puts the highest load when the solenoid valve and pump start and end. Startup impedance causes high current draw.
-    - Change the start and end timing of the solenoid valve and pump.
+    - MUD puts the highest load when the solenoid valve and pump start and end. Startup impedance causes high current draw.
+    - Change the start and end timing of the solenoid valve and pump.
 - Heard audible noise in white noise.
-    - It is caused by Raspberry Pi Wi-Fi and Bluetooth signals. Turn them off using the following commands.
- ```
- sudo rfkill block 0    # disables Wi-Fi
- sudo rfkill block 1    # disables Bluetooth
- ```
+    - It is caused by Raspberry Pi Wi-Fi and Bluetooth signals. Turn them off using the following commands.
+    ```
+    sudo rfkill block 0    # disables Wi-Fi
+    sudo rfkill block 1    # disables Bluetooth
+    ```
