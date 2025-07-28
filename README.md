@@ -4,10 +4,10 @@
 
 ## Content
 
-- `MUD.c` can be used to control MUD experiment through command. It has TUI.
-- `MUD_BlueOrigin_Code.c` can be used to automate MUD experiment for rocket launch. It is tailor made for Blue Origin New Shepard flight profile.
+- `MUD.c` can be used to control MUD experiment interactively through the command-line. It has a TUI.
+- `MUD_BlueOrigin_Code.c` can be used to automate MUD experiment for rocket launch. It is tailor-made for Blue Origin New Shepard flight profile.
 - `MUD_BlueOrigin_Code_test.c` is used to test half baked code, and it is not guaranteed to be stable.
-- `MUD_BlueOrigin_Code.bak.c` is fully functional and stable backup of MUD_BlueOrigin_Code`.c
+- `MUD_BlueOrigin_Code.bak.c` is a fully functional and stable backup of MUD_BlueOrigin_Code`.c
 
 ## Prerequisites
 - Raspberry Pi OS
