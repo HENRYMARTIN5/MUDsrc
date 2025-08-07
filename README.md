@@ -187,7 +187,7 @@ This method is used for actual rocket launches.
 7. Wait another 1 minute for the Raspberry Pi to shut down safely.
 8. Turn off and on the power supply to boot Raspberry Pi.
 9. `mud_blue.202x` started again, so comment out `crontab` line and reboot.
-10. Check data in `MUD_Code//Blue-Data/` directory.
+10. Check data in `MUD_Code/Blue-Data/` directory.
 11. Shutdown or reboot Raspberry Pi as needed.
 
 #### Flow of operation for actual rocket launch
@@ -218,7 +218,7 @@ This method can be used to observe the experiment in real time, monitor log outp
 8. Wait another 1 minute for the Raspberry Pi to shut down safely.
 9. Turn off and on the power supply to boot Raspberry Pi.
 10.  **Skip this if you did step 4**. `mud_blue.202x` started again, so comment out `crontab` line and reboot
-12. Check data in `MUD_Code//Blue-Data/` directory.
+12. Check data in `MUD_Code/Blue-Data/` directory.
 13. Shutdown or reboot Raspberry Pi as needed.
 
 ## Troubleshooting
